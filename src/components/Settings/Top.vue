@@ -17,24 +17,24 @@
         </div>
       </div>
       <div class="flex gap-[45px]">
-        <div class="date">
-          <span
+        <div class="date" v-if="date !==''">
+          <span 
             class="text-s font-[400] text-[18px] leading-[32px] tracking-[-2%]"
             >Date :
           </span>
           <span
             class="text-[rgba(96, 96, 96, 1)] font-[700] text-[18px] leading-[32px] tracking-[-2%]"
-            >13th August 2024</span
+            >{{date}}</span
           >
         </div>
-        <div class="time">
+        <div class="time" v-if="time !==''">
           <span
             class="text-s font-[400] text-[18px] leading-[32px] tracking-[-2%]"
             >Time :
           </span>
           <span
             class="text-[rgba(96, 96, 96, 1)] font-[700] text-[18px] leading-[32px] tracking-[-2%]"
-            >11:45 AM</span
+            >{{time}}</span
           >
         </div>
       </div>
@@ -44,4 +44,16 @@
 
 <script setup>
 import User from "@/assets/imgs/user.jpg";
+import {defineProps} from "vue";
+
+const props = defineProps({
+  time:{
+    type:String,
+    required:true,
+  },
+  date:{
+    type:String,
+    required:true,
+  }
+})
 </script>
